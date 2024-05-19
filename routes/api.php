@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,6 @@ Route::get('store/{id}', [StoreController::class, 'show']);
 Route::post('store', [StoreController::class, 'store']);
 Route::put('store/{id}', [StoreController::class, 'update']);
 Route::delete('store/{id}', [StoreController::class, 'destroy']);
+
+Route::post('login', [UserController::class, 'login']);
+Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');

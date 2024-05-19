@@ -10,4 +10,8 @@ class Store extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'address', 'active'];
+
+    public function books() {
+        return $this->belongsToMany(Book::class);
+    }
 }
